@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">9puzzle</string>
-    <string name="rule_content">Przed Tobą quiz składający się z pięciu pytań. Po rozpoczęciu zaprezentujemy Ci pytanie i cztery odpowiedzi. Będziesz miał ograniczoną ilość czasu na odpowiedź. Punktacja: za każdą sekundę czasu pozostałego na odpowiedź dostaniesz 2 punkty. Za prawidłową</string>
+    <string name="rule_content">
+        Przed Tobą quiz składający się z pięciu pytań.\n\n
+        Po rozpoczęciu zaprezentujemy Ci pytanie i cztery odpowiedzi. Będziesz miał ograniczoną ilość czasu na odpowiedź.\n\n
+        Punktacja: za każdą sekundę czasu pozostałego na odpowiedź dostaniesz 2 punkty. Za prawidłową
+    </string>
     <string name="rule_title">Labirynt</string>
     <string name="back">Wróć</string>
     <string name="next">Zaczynamy</string>
@@ -14,4 +18,7 @@
     <string name="title0">Gratulacje</string>
     <string name="title2">Niespodzianka!</string>
     <string name="title3">W nagrodę za prawidłowe ułożenie układanki otrzymujesz dwie kolorowanki do pobrania! Stuknij w obrazek poniżej aby zapisać kolorowankę</string>
+    <string name="give_up">Poddaję się</string>
+    <string name="kolorowanka_1">Kolorowanka 1</string>
+    <string name="kolorowanka_2">Kolorowanka 2</string>
 </resources>

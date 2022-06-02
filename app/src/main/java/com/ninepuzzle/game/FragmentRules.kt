@@ -24,5 +24,4 @@ class FragmentRules: Fragment(R.layout.fragment_rules) {
                 .commit()
         }
     }
-
 }
