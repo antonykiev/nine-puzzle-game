@@ -1,9 +1,6 @@
 package com.ninepuzzle.game
 
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,14 +20,14 @@ class ViewModelGame: ViewModel() {
         /**
          * Uncomment this to test WIN
          */
-//        viewModelScope.launch {
-//            delay(5000)
-//            val newSequence = generateSequence().map { it.toInt() }
-//            analyzeWinResult(newSequence)
-//            initSequence.postValue(
-//                newSequence.map { "$it" }
-//            )
-//        }
+/*        viewModelScope.launch {
+            delay(5000)
+            val newSequence = (1..8).map { it.toInt() }
+            analyzeWinResult(newSequence)
+            initSequence.postValue(
+                newSequence.map { "$it" }
+            )
+        }*/
 
         viewModelScope.launch {
             while (winResult.value == false) {
@@ -50,6 +47,14 @@ class ViewModelGame: ViewModel() {
         initSequence.postValue(
             newSequence.map { "$it" }
         )
+    }
+
+    fun calculateScore(): LiveData<Int> {
+        if (winResult.value == false)
+            return MutableLiveData(0)
+
+        val result = (300 - (stepCounter.value ?: 0)) + 50
+        return MutableLiveData(result)
     }
 
     private fun generateSequence() : List<String> {
