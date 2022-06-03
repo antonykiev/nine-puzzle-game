@@ -38,5 +38,9 @@ dependencies {
     implementation (Dependencies.Androidx.material)
     implementation (Dependencies.Androidx.constraintLayout)
 
+    implementation (Dependencies.Ktx.core)
+    implementation (Dependencies.Ktx.activity)
+    implementation (Dependencies.Ktx.fragment)
+
     implementation (Dependencies.Binding.delegate)
 }
