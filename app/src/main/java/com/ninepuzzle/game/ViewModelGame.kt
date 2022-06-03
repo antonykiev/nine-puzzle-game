@@ -4,13 +4,14 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 
 class ViewModelGame: ViewModel() {
 
-    val initSequence = MutableLiveData(generateSequence().shuffled())
+    val initSequence = MutableLiveData(generateSequence())
 
     val winResult = MutableLiveData(false)
     val stepCounter = MutableLiveData(0)
@@ -42,7 +43,16 @@ class ViewModelGame: ViewModel() {
         )
     }
 
-    private fun generateSequence() = (1..9).map { "$it" }
+    private fun generateSequence() : List<String> {
+        var randomSteps = (1..9).toList()
+
+        repeat(50) {
+            val randomIndex = (0..8).random()
+            randomSteps = gameLogicCore(randomSteps, randomIndex)
+
+        }
+        return randomSteps  .map { "$it" }
+    }
 
     private fun gameLogicCore(
         initList: List<Int>,

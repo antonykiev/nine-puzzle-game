@@ -9,7 +9,7 @@
     android:padding="@dimen/root_padding">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/btnGiveUp"
         android:background="@drawable/shape_white_button"
         android:layout_width="0dp"
         android:text="@string/give_up"
@@ -332,7 +332,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGiveUp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

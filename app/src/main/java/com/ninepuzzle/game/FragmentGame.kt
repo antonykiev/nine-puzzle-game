@@ -61,6 +61,7 @@ class FragmentGame: Fragment(R.layout.fragment_ninepuzzle_game) {
     private fun gameIsWin() {
         viewList.forEach { it.isClickable = false }
 
+        binding.btnGiveUp.visibility = View.INVISIBLE
         binding.btnNext.visibility = View.VISIBLE
         binding.tvGoodjob.visibility = View.VISIBLE
 
