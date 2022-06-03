@@ -36,7 +36,7 @@ class FragmentGame: Fragment(R.layout.fragment_ninepuzzle_game) {
         }
 
         viewModelGame.timer.observe(viewLifecycleOwner) {
-            binding.tvTimer.text = "$it"
+            timerTick (it)
         }
 
         viewModelGame.initSequence.observe(viewLifecycleOwner) {
@@ -56,6 +56,14 @@ class FragmentGame: Fragment(R.layout.fragment_ninepuzzle_game) {
                 viewModelGame.performStep(index)
             }
         }
+    }
+
+    private fun timerTick(seconds: Int) {
+        val minutes = String.format("%02d", seconds / 60)
+        val seconds = String.format("%02d", seconds % 60)
+
+        binding.tvTimer.text = "$minutes:$seconds"
+
     }
 
     private fun gameIsWin() {

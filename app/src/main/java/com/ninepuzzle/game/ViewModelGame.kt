@@ -15,21 +15,30 @@ class ViewModelGame: ViewModel() {
 
     val winResult = MutableLiveData(false)
     val stepCounter = MutableLiveData(0)
-    val timer = MutableLiveData("00:00")
+    val timer = MutableLiveData(0)
 
-    /**
-     * Uncomment this to test WIN
-     */
-/*    init {
+
+
+    init {
+        /**
+         * Uncomment this to test WIN
+         */
+//        viewModelScope.launch {
+//            delay(5000)
+//            val newSequence = generateSequence().map { it.toInt() }
+//            analyzeWinResult(newSequence)
+//            initSequence.postValue(
+//                newSequence.map { "$it" }
+//            )
+//        }
+
         viewModelScope.launch {
-            delay(5000)
-            val newSequence = generateSequence().map { it.toInt() }
-            analyzeWinResult(newSequence)
-            initSequence.postValue(
-                newSequence.map { "$it" }
-            )
+            while (winResult.value == false) {
+                delay(1_000)
+                timer.postValue((timer.value ?: 0) + 1)
+            }
         }
-    }*/
+    }
 
     fun performStep(buttonIndex: Int) {
         stepCounter.value = (stepCounter.value ?: 0) + 1
