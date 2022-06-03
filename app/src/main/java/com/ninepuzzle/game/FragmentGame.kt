@@ -56,6 +56,10 @@ class FragmentGame: Fragment(R.layout.fragment_ninepuzzle_game) {
                 viewModelGame.performStep(index)
             }
         }
+
+        binding.btnGiveUp.setOnClickListener {
+            nextScreen()
+        }
     }
 
     private fun timerTick(seconds: Int) {
@@ -74,11 +78,15 @@ class FragmentGame: Fragment(R.layout.fragment_ninepuzzle_game) {
         binding.tvGoodjob.visibility = View.VISIBLE
 
         binding.btnNext.setOnClickListener {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.root, FragmentColorGameSelector())
-                .commit()
+            nextScreen()
         }
+    }
+
+    private fun nextScreen() {
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.root, FragmentColorGameSelector())
+            .commit()
     }
 
 }
